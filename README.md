@@ -1,0 +1,1 @@
+# HSK-Store-Manager
