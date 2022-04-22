@@ -64,6 +64,7 @@ go
 
 create table tbl_OrdersDetails
 (
+	iOrdersDetailsID int not null IDENTITY(1,1) primary key,
 	iOrdersID int,
 	sPhoneID varchar(50),
 	iQuantity int,
@@ -71,8 +72,8 @@ create table tbl_OrdersDetails
 
 	constraint FK_OrdersID_OrdersDetails foreign key(iOrdersID) references tbl_Orders(iOrdersID),
 	constraint FK_PhoneID_OrdersDetails foreign key(sPhoneID) references tbl_Phone(sPhoneID)
-)
 
+)
 go
 
 ----------------------- INSERT DATA INTO TABLEs -----------------------
@@ -243,12 +244,25 @@ go
 create proc showAllPhone
 as
 begin
-select sPhoneID as [Mã điện thoại] , tbl_PhoneBrand.sBrandID as [Mã Hãng Điện Thoại], sPhoneModel as [Tên Điện Thoại],
+select sPhoneID as [Mã Điện Thoại] , tbl_PhoneBrand.sBrandID as [Mã Hãng Điện Thoại], sPhoneModel as [Tên Điện Thoại],
 iQuantity as [Số Lượng], iPrice as [Giá Bán]
 from tbl_Phone inner join tbl_PhoneBrand on tbl_Phone.sBrandID = tbl_PhoneBrand.sBrandID
 end
 
 exec showAllPhone
+go
+----------------------------------------
+
+-- proc get price the phone
+----------------------------------------
+create proc getPriceOfPhone (@sPhoneID varchar(50))
+as
+begin
+select iPrice as [Giá Bán]
+from tbl_Phone where sPhoneID = @sPhoneID
+end
+
+exec getPriceOfPhone @sPhoneID = 'IP5s'
 go
 ----------------------------------------
 
@@ -446,5 +460,90 @@ set iCustomerID = @iCustomerID, iStaffID = @iStaffID, dOrdersDate = @dOrdersDate
 where iOrdersID = @iOrdersID
 end
 
+go
+----------------------------------------
+
+------------------- OrdersDetails -------------------
+-- proc show all OrdersDetails
+----------------------------------------
+create proc showAllOrdersDetails
+as
+begin
+select iOrdersDetailsID as [Mã OrdersDetails], iOrdersID as [Mã Orders],
+tbl_Phone.sPhoneID as [Mã Điện Thoại], tbl_OrdersDetails.iQuantity as [Số Lượng], 
+tbl_Phone.iPrice as [Giá Bán] from tbl_OrdersDetails
+inner join tbl_Phone on tbl_Phone.sPhoneID = tbl_OrdersDetails.sPhoneID
+end
+exec showAllOrdersDetails
+go
+----------------------------------------
+
+-- proc add a new OrdersDetails
+----------------------------------------
+create proc addNewOrdersDetails (@iOrdersID int, @sPhoneID varchar(50), @iQuantity int)
+as
+insert into tbl_OrdersDetails (iOrdersID, sPhoneID, iQuantity, iPrice)
+values(@iOrdersID, @sPhoneID, @iQuantity, (select iPrice from tbl_Phone where @sPhoneID = sPhoneID))
+
+exec addNewOrdersDetails @iOrdersID = 10, @sPhoneID = 'IP5s', @iQuantity = 10
+go
+----------------------------------------
+
+-- proc delete a OrdersDetails
+----------------------------------------
+create proc deleteOrdersDetails (@iOrdersDetailsID int)
+as
+delete from tbl_OrdersDetails where iOrdersDetailsID = @iOrdersDetailsID
+
+exec deleteOrdersDetails @iOrdersDetailsID=2
+go
+----------------------------------------
+
+-- proc update a OrdersDetails
+----------------------------------------
+create proc updateOrdersDetails (@iOrdersDetailsID int, @iOrdersID int, @sPhoneID varchar(50), @iQuantity int)
+as
+begin
+update tbl_OrdersDetails
+set iOrdersID = @iOrdersID, sPhoneID = @sPhoneID, iQuantity = @iQuantity, 
+iPrice = (select iPrice from tbl_Phone where @sPhoneID = sPhoneID)
+where iOrdersDetailsID = @iOrdersDetailsID
+end
+
+exec updateOrdersDetails @iOrdersDetailsID = 3, @iOrdersID = 10, @sPhoneID = 'IP6s', @iQuantity = 5
+go
+----------------------------------------
+
+------------------- Bill -------------------
+-- proc show all Bill
+----------------------------------------
+create proc showAllBill
+as
+begin
+select iOrdersID as [Mã Orders], iOrdersDetailsID as [Mã OrdersDetails],
+tbl_Phone.sPhoneModel as [Tên Điện Thoại],
+tbl_OrdersDetails.iQuantity as [Số Lượng], tbl_OrdersDetails.iPrice as [Giá Bán]
+from tbl_OrdersDetails
+inner join tbl_Phone on tbl_OrdersDetails.sPhoneID = tbl_Phone.sPhoneID
+end
+
+exec showAllBill
+go
+----------------------------------------
+
+-- proc show all Bill of Order
+----------------------------------------
+create proc showBillOfOrder (@iOrdersID int)
+as
+begin
+select iOrdersID as [Mã Orders], iOrdersDetailsID as [Mã OrdersDetails],
+tbl_Phone.sPhoneModel as [Tên Điện Thoại],
+tbl_OrdersDetails.iQuantity as [Số Lượng], tbl_OrdersDetails.iPrice as [Giá Bán]
+from tbl_OrdersDetails
+inner join tbl_Phone on tbl_OrdersDetails.sPhoneID = tbl_Phone.sPhoneID
+where iOrdersID = @iOrdersID
+end
+
+exec showBillOfOrder @iOrdersID = 1
 go
 ----------------------------------------
