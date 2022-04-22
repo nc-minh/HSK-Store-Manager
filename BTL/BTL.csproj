@@ -69,6 +69,12 @@
       <DependentUpon>CrystalReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CrystalReport_Customer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport_Customer.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CrystalReport_SearchThePhone.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -89,6 +95,12 @@
     </Compile>
     <Compile Include="Customer\Customer.cs" />
     <Compile Include="Customer\CustomerAction.cs" />
+    <Compile Include="Form_Bill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Bill.Designer.cs">
+      <DependentUpon>Form_Bill.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_Brand.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +119,14 @@
     <Compile Include="Form_Orders.Designer.cs">
       <DependentUpon>Form_Orders.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_OrdersDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_OrdersDetails.Designer.cs">
+      <DependentUpon>Form_OrdersDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrdersDetails\OrdersDetails.cs" />
+    <Compile Include="OrdersDetails\OrdersDetailsAction.cs" />
     <Compile Include="Orders\Orders.cs" />
     <Compile Include="Orders\OrdersAction.cs" />
     <Compile Include="Phone\Phone.cs" />
@@ -124,6 +144,12 @@
     </Compile>
     <Compile Include="Form_Staff.Designer.cs">
       <DependentUpon>Form_Staff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report_Form\Customer_Report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report_Form\Customer_Report.Designer.cs">
+      <DependentUpon>Customer_Report.cs</DependentUpon>
     </Compile>
     <Compile Include="Report_Form\Phone_Report.cs">
       <SubType>Form</SubType>
@@ -143,6 +169,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReport.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReport_Customer.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport_Customer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="CrystalReport_SearchThePhone.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReport_SearchThePhone.cs</LastGenOutput>
@@ -154,6 +184,9 @@
     <EmbeddedResource Include="CrystalReport_Staff.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReport_Staff.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Bill.resx">
+      <DependentUpon>Form_Bill.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Brand.resx">
       <DependentUpon>Form_Brand.cs</DependentUpon>
@@ -167,6 +200,9 @@
     <EmbeddedResource Include="Form_Orders.resx">
       <DependentUpon>Form_Orders.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form_OrdersDetails.resx">
+      <DependentUpon>Form_OrdersDetails.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -178,6 +214,9 @@
     </Compile>
     <EmbeddedResource Include="Form_Staff.resx">
       <DependentUpon>Form_Staff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report_Form\Customer_Report.resx">
+      <DependentUpon>Customer_Report.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report_Form\Phone_Report.resx">
       <DependentUpon>Phone_Report.cs</DependentUpon>
@@ -214,7 +253,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CrystalReport\" />
-    <Folder Include="OrdersDetail\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

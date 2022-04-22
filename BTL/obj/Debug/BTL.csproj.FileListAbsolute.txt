@@ -34,3 +34,6 @@ F:\FITHOU\Các môn học\Lập trình hướng sự kiện\BTL\BTL\bin\Debug\Cr
 F:\FITHOU\Các môn học\Lập trình hướng sự kiện\BTL\BTL\obj\Debug\BTL.Report.Phone_Report.resources
 F:\FITHOU\Các môn học\Lập trình hướng sự kiện\BTL\BTL\obj\Debug\BTL.csproj.CopyComplete
 F:\FITHOU\Các môn học\Lập trình hướng sự kiện\BTL\BTL\obj\Debug\BTL.Report.Staff_Report.resources
+F:\FITHOU\Các môn học\Lập trình hướng sự kiện\BTL\BTL\obj\Debug\BTL.Report_Form.Customer_Report.resources
+F:\FITHOU\Các môn học\Lập trình hướng sự kiện\BTL\BTL\obj\Debug\BTL.Form_OrdersDetails.resources
+F:\FITHOU\Các môn học\Lập trình hướng sự kiện\BTL\BTL\obj\Debug\BTL.Form_Bill.resources

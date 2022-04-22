@@ -153,5 +153,31 @@ namespace BTL
             }
             return dataTable;
         }
+
+        public int getPriceOfPhone(String _sPhoneID)
+        {
+            SqlConnection conn = new SqlConnection();
+            try
+            {
+                conn.ConnectionString = ConfigurationManager.ConnectionStrings["store_manager"].ConnectionString;
+                conn.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "getPriceOfPhone";
+
+                cmd.Parameters.AddWithValue("@sPhoneID", _sPhoneID);
+
+                cmd.Connection = conn;
+                return (int)(cmd.ExecuteScalar());// exec proc
+            }
+            catch
+            {
+                return 0;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
     }
 }

@@ -248,6 +248,7 @@ namespace BTL
             this.btn_Detail.TabIndex = 3;
             this.btn_Detail.Text = "Chi Tiết";
             this.btn_Detail.UseVisualStyleBackColor = true;
+            this.btn_Detail.Click += new System.EventHandler(this.btn_Detail_Click);
             // 
             // btn_Edit
             // 

@@ -337,7 +337,7 @@ namespace BTL
             this.btn_ReportPhone.Name = "btn_ReportPhone";
             this.btn_ReportPhone.Size = new System.Drawing.Size(178, 45);
             this.btn_ReportPhone.TabIndex = 0;
-            this.btn_ReportPhone.Text = "Excel";
+            this.btn_ReportPhone.Text = "Report";
             this.btn_ReportPhone.UseVisualStyleBackColor = true;
             this.btn_ReportPhone.Click += new System.EventHandler(this.btn_ReportPhone_Click);
             // 

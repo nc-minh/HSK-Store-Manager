@@ -138,5 +138,11 @@ namespace BTL
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btn_Detail_Click(object sender, EventArgs e)
+        {
+            Form_OrdersDetails form_OrdersDetails = new Form_OrdersDetails();
+            form_OrdersDetails.Show();
+        }
     }
 }
