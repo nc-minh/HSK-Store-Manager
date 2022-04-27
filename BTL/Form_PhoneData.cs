@@ -228,5 +228,11 @@ namespace BTL
             Report.Phone_Report phone_Report = new Report.Phone_Report();
             phone_Report.Show();
         }
+
+        private void btn_Bill_Click(object sender, EventArgs e)
+        {
+            Form_Bill form_Bill = new Form_Bill();
+            form_Bill.Show();
+        }
     }
 }

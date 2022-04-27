@@ -520,11 +520,15 @@ go
 create proc showAllBill
 as
 begin
-select iOrdersID as [Mã Orders], iOrdersDetailsID as [Mã OrdersDetails],
+select tbl_OrdersDetails.iOrdersID as [Mã Orders], tbl_OrdersDetails.iOrdersDetailsID as [Mã OrdersDetails],
 tbl_Phone.sPhoneModel as [Tên Điện Thoại],
-tbl_OrdersDetails.iQuantity as [Số Lượng], tbl_OrdersDetails.iPrice as [Giá Bán]
+tbl_OrdersDetails.iQuantity as [Số Lượng], tbl_OrdersDetails.iPrice as [Giá Bán],
+tbl_Staff.sFullName as [Người Bán], tbl_Customer.sFullName as [Người Mua]
 from tbl_OrdersDetails
 inner join tbl_Phone on tbl_OrdersDetails.sPhoneID = tbl_Phone.sPhoneID
+inner join tbl_Orders on tbl_OrdersDetails.iOrdersID = tbl_Orders.iOrdersID
+inner join tbl_Customer on tbl_Customer.iCustomerID = tbl_Orders.iCustomerID
+inner join tbl_Staff on tbl_Staff.iStaffID = tbl_Orders.iStaffID
 end
 
 exec showAllBill
@@ -536,14 +540,18 @@ go
 create proc showBillOfOrder (@iOrdersID int)
 as
 begin
-select iOrdersID as [Mã Orders], iOrdersDetailsID as [Mã OrdersDetails],
+select tbl_OrdersDetails.iOrdersID as [Mã Orders], tbl_OrdersDetails.iOrdersDetailsID as [Mã OrdersDetails],
 tbl_Phone.sPhoneModel as [Tên Điện Thoại],
-tbl_OrdersDetails.iQuantity as [Số Lượng], tbl_OrdersDetails.iPrice as [Giá Bán]
+tbl_OrdersDetails.iQuantity as [Số Lượng], tbl_OrdersDetails.iPrice as [Giá Bán],
+tbl_Staff.sFullName as [Người Bán], tbl_Customer.sFullName as [Người Mua]
 from tbl_OrdersDetails
 inner join tbl_Phone on tbl_OrdersDetails.sPhoneID = tbl_Phone.sPhoneID
-where iOrdersID = @iOrdersID
+inner join tbl_Orders on tbl_OrdersDetails.iOrdersID = tbl_Orders.iOrdersID
+inner join tbl_Customer on tbl_Customer.iCustomerID = tbl_Orders.iCustomerID
+inner join tbl_Staff on tbl_Staff.iStaffID = tbl_Orders.iStaffID
+where tbl_OrdersDetails.iOrdersID = @iOrdersID
 end
 
-exec showBillOfOrder @iOrdersID = 1
+exec showBillOfOrder @iOrdersID = 10
 go
 ----------------------------------------

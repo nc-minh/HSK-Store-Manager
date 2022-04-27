@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bill\BillAction.cs" />
     <Compile Include="Brand\Brand.cs" />
     <Compile Include="Brand\BrandAction.cs" />
     <Compile Include="BTL_HuongSukienDataSet.Designer.cs">

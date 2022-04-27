@@ -31,9 +31,9 @@ namespace BTL
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridView_Bill = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Bill)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -62,28 +62,34 @@ namespace BTL
             this.label1.TabIndex = 0;
             this.label1.Text = "Hóa Đơn";
             // 
-            // dataGridView1
+            // dataGridView_Bill
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 70);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1342, 509);
-            this.dataGridView1.TabIndex = 1;
+            this.dataGridView_Bill.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView_Bill.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView_Bill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_Bill.Location = new System.Drawing.Point(12, 70);
+            this.dataGridView_Bill.Name = "dataGridView_Bill";
+            this.dataGridView_Bill.ReadOnly = true;
+            this.dataGridView_Bill.RowHeadersWidth = 51;
+            this.dataGridView_Bill.RowTemplate.Height = 24;
+            this.dataGridView_Bill.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView_Bill.Size = new System.Drawing.Size(1342, 509);
+            this.dataGridView_Bill.TabIndex = 1;
             // 
             // Form_Bill
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1366, 591);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridView_Bill);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Form_Bill";
             this.Text = "Form_Bill";
+            this.Load += new System.EventHandler(this.Form_Bill_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Bill)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -92,6 +98,6 @@ namespace BTL
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridView_Bill;
     }
 }

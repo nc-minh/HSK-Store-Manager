@@ -58,6 +58,7 @@ namespace BTL
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.textBox_PhoneModel = new System.Windows.Forms.TextBox();
             this.textBox_BrandID = new System.Windows.Forms.TextBox();
+            this.btn_Bill = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Phone)).BeginInit();
@@ -249,6 +250,7 @@ namespace BTL
             this.tableLayoutPanel3.Controls.Add(this.btn_ReportPhone, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.btn_Staff, 1, 1);
             this.tableLayoutPanel3.Controls.Add(this.btn_Customer, 2, 1);
+            this.tableLayoutPanel3.Controls.Add(this.btn_Bill, 4, 1);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(12, 223);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
@@ -417,6 +419,18 @@ namespace BTL
             this.textBox_BrandID.Size = new System.Drawing.Size(196, 34);
             this.textBox_BrandID.TabIndex = 12;
             // 
+            // btn_Bill
+            // 
+            this.btn_Bill.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Bill.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Bill.Location = new System.Drawing.Point(1121, 67);
+            this.btn_Bill.Name = "btn_Bill";
+            this.btn_Bill.Size = new System.Drawing.Size(178, 37);
+            this.btn_Bill.TabIndex = 9;
+            this.btn_Bill.Text = "Bill";
+            this.btn_Bill.UseVisualStyleBackColor = true;
+            this.btn_Bill.Click += new System.EventHandler(this.btn_Bill_Click);
+            // 
             // Form_PhoneData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -475,6 +489,7 @@ namespace BTL
         private System.Windows.Forms.Button btn_Staff;
         private System.Windows.Forms.Button btn_Customer;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_Bill;
     }
 }
 
